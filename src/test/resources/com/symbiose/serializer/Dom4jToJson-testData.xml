@@ -1,61 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<SvcRs>
-	<ModuleResponse>
-		<statusCode>000000</statusCode>
-		<messageError />
-		<concreteReturn class="levels">
-			<IcbsLastTransactionReportDTO>
-				<paymentAmt>345700</paymentAmt>
-				<paymentDate class="sql-timestamp">2015-06-22 20:10:53.355
-				</paymentDate>
-				<paymentType>En L&amp;iacute;nea</paymentType>
-				<productOrigin>AHO0100</productOrigin>
-				<serviceName>Pago Gas</serviceName>
-				<state>EXI</state>
-				<id>4194046</id>
-			</IcbsLastTransactionReportDTO>
-			<IcbsLastTransactionReportDTO>
-				<paymentAmt>123654.23</paymentAmt>
-				<paymentDate class="sql-timestamp">2015-06-22 20:10:52.449
-				</paymentDate>
-				<paymentType>En L&amp;iacute;nea</paymentType>
-				<productOrigin>AHO0100</productOrigin>
-				<serviceName>Pago Telefono</serviceName>
-				<state>EXI</state>
-				<id>4194045</id>
-			</IcbsLastTransactionReportDTO>
-			<IcbsLastTransactionReportDTO>
-				<paymentAmt>97560.67</paymentAmt>
-				<paymentDate class="sql-timestamp">2015-06-22 20:10:51.61
-				</paymentDate>
-				<paymentType>En L&amp;iacute;nea</paymentType>
-				<productOrigin>AHO0100</productOrigin>
-				<serviceName>Pago Luz</serviceName>
-				<state>EXI</state>
-				<id>4194044</id>
-			</IcbsLastTransactionReportDTO>
-			<IcbsLastTransactionReportDTO>
-				<paymentAmt>345700</paymentAmt>
-				<paymentDate class="sql-timestamp">2015-06-22 20:10:50.358
-				</paymentDate>
-				<paymentType>En L&amp;iacute;nea</paymentType>
-				<productOrigin>AHO0100</productOrigin>
-				<serviceName>Pago Agua</serviceName>
-				<state>EXI</state>
-				<id>4194043</id>
-			</IcbsLastTransactionReportDTO>
-			<IcbsLastTransactionReportDTO>
-				<paymentAmt>2123123</paymentAmt>
-				<paymentDate class="sql-timestamp">2015-06-22 20:08:06.204
-				</paymentDate>
-				<paymentType>En L&amp;iacute;nea</paymentType>
-				<productOrigin>AHO0001</productOrigin>
-				<serviceName>pago tarjeta falabel</serviceName>
-				<state>EXI</state>
-				<id>4194022</id>
-			</IcbsLastTransactionReportDTO>
-		</concreteReturn>
-		<actualPage>1</actualPage>
-		<pages>1</pages>
-	</ModuleResponse>
-</SvcRs>
+<ModuleResponse>
+	<statusCode>000000</statusCode>
+	<messageError />
+	<concreteReturn class="levels">
+		<IcbsLastTransactionReportDTO>
+			<paymentAmt>345700</paymentAmt>
+			<paymentDate class="sql-timestamp">2015-06-22 20:10:53.355
+			</paymentDate>
+			<paymentType>En L&amp;iacute;nea</paymentType>
+			<productOrigin>AHO0100</productOrigin>
+			<serviceName>Pago Gas</serviceName>
+			<state>EXI</state>
+			<id>4194046</id>
+		</IcbsLastTransactionReportDTO>
+		<IcbsLastTransactionReportDTO>
+			<paymentAmt>123654.23</paymentAmt>
+			<paymentDate class="sql-timestamp">2015-06-22 20:10:52.449
+			</paymentDate>
+			<paymentType>En L&amp;iacute;nea</paymentType>
+			<productOrigin>AHO0100</productOrigin>
+			<serviceName>Pago Telefono</serviceName>
+			<state>EXI</state>
+			<id>4194045</id>
+		</IcbsLastTransactionReportDTO>
+		<IcbsLastTransactionReportDTO>
+			<paymentAmt>97560.67</paymentAmt>
+			<paymentDate class="sql-timestamp">2015-06-22 20:10:51.61
+			</paymentDate>
+			<paymentType>En L&amp;iacute;nea</paymentType>
+			<productOrigin>AHO0100</productOrigin>
+			<serviceName>Pago Luz</serviceName>
+			<state>EXI</state>
+			<id>4194044</id>
+		</IcbsLastTransactionReportDTO>
+		<IcbsLastTransactionReportDTO>
+			<paymentAmt>345700</paymentAmt>
+			<paymentDate class="sql-timestamp">2015-06-22 20:10:50.358
+			</paymentDate>
+			<paymentType>En L&amp;iacute;nea</paymentType>
+			<productOrigin>AHO0100</productOrigin>
+			<serviceName>Pago Agua</serviceName>
+			<state>EXI</state>
+			<id>4194043</id>
+		</IcbsLastTransactionReportDTO>
+		<IcbsLastTransactionReportDTO>
+			<paymentAmt>2123123</paymentAmt>
+			<paymentDate class="sql-timestamp">2015-06-22 20:08:06.204
+			</paymentDate>
+			<paymentType>En L&amp;iacute;nea</paymentType>
+			<productOrigin>AHO0001</productOrigin>
+			<serviceName>pago tarjeta falabel</serviceName>
+			<state>EXI</state>
+			<id>4194022</id>
+		</IcbsLastTransactionReportDTO>
+	</concreteReturn>
+	<actualPage>1</actualPage>
+	<pages>1</pages>
+</ModuleResponse>
