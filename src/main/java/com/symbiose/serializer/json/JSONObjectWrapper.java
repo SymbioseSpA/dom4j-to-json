@@ -25,11 +25,6 @@ public interface JSONObjectWrapper {
 	Object getValue();
 
 	/**
-	 * @return
-	 */
-	JSONObjectWrapper buildJsonArray();
-
-	/**
 	 * @param recursive
 	 */
 	void accumulate(JSONObjectWrapper recursive);

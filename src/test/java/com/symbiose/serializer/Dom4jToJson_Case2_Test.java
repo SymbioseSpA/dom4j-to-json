@@ -15,29 +15,30 @@ import org.junit.Test;
  * @author pcollaog
  *
  */
-public class Dom4jToJsonTest {
+public class Dom4jToJson_Case2_Test {
+
+	private static final String FILENAME = "Dom4jToJson-testData_case2.xml";
 
 	private boolean _validateAsserts;
 
 	/**
 	 * 
 	 */
-	public Dom4jToJsonTest() {
+	public Dom4jToJson_Case2_Test() {
 		_validateAsserts = true;
 	}
 
 	/**
 	 * @param validateAsserts
 	 */
-	protected Dom4jToJsonTest(boolean validateAsserts) {
+	protected Dom4jToJson_Case2_Test(boolean validateAsserts) {
 		_validateAsserts = validateAsserts;
 	}
 
 	@Test
 	public void shouldSerializeXmlToJson() throws Exception {
 		Document document = DocumentHelper.parseText(IOUtils
-				.toString(getClass().getResourceAsStream(
-						"Dom4jToJson-testData.xml")));
+				.toString(getClass().getResourceAsStream(FILENAME)));
 
 		Element rootElement = document.getRootElement();
 
@@ -52,22 +53,26 @@ public class Dom4jToJsonTest {
 			JSONObject jsonObject = resultJsonArray.getJSONObject(0);
 
 			assertEquals("000000", jsonObject.getString("statusCode"));
-			assertEquals("1", jsonObject.getString("actualPage"));
-			assertEquals("1", jsonObject.getString("pages"));
+			assertEquals("2", jsonObject.getString("pages"));
+			assertEquals("", jsonObject.getString("messageError"));
+			assertEquals("2", jsonObject.getString("actualPage"));
 
 			JSONArray responseJson = jsonObject.getJSONArray("concreteReturn");
-			assertEquals(5, responseJson.size());
+			assertEquals(1, responseJson.size());
 
 			JSONObject transactionJson = responseJson.getJSONObject(0);
-			assertEquals("345700", transactionJson.get("paymentAmt"));
-			assertEquals("2015-06-22 20:10:53.355",
+			assertEquals("358953", transactionJson.get("id"));
+			assertEquals("2015-06-26 11:43:47.567",
 					transactionJson.getString("paymentDate").trim());
-			assertEquals("En L&iacute;nea",
-					transactionJson.getString("paymentType"));
-			assertEquals("AHO0100", transactionJson.getString("productOrigin"));
-			assertEquals("Pago Gas", transactionJson.getString("serviceName"));
+			assertEquals("1", transactionJson.get("paymentAmt"));
 			assertEquals("EXI", transactionJson.getString("state"));
-			assertEquals("4194046", transactionJson.getString("id"));
+			assertEquals("366761", transactionJson.getString("autNumber"));
+			assertEquals("Crédito4543",
+					transactionJson.getString("productName"));
+			assertEquals("ING_Transferencias - ING_Internas, Aval, ACH",
+					transactionJson.getString("engServiceName"));
+			assertEquals("Transferencias - Internas, Aval, ACH",
+					transactionJson.getString("serviceName"));
 		}
 	}
 

@@ -2,6 +2,7 @@ package com.symbiose.serializer.json;
 
 import java.util.List;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -53,8 +54,14 @@ public class JSONObjectWrapperImpl implements JSONObjectWrapper {
 		Object value = recursive.getValue();
 
 		if (value instanceof List) {
-			_jsonObject.accumulate(recursive.getKey(), recursive
-					.getJsonObject().getJSONArray(recursive.getKey()));
+			List<JSONObjectWrapper> values = (List<JSONObjectWrapper>) value;
+			JSONArray jsonArray = new JSONArray();
+
+			for (JSONObjectWrapper object : values) {
+				jsonArray.element(object.getJsonObject());
+			}
+
+			_jsonObject.accumulate(recursive.getKey(), jsonArray);
 		} else {
 			_jsonObject.accumulate(recursive.getKey(), value);
 		}
@@ -81,21 +88,6 @@ public class JSONObjectWrapperImpl implements JSONObjectWrapper {
 	@Override
 	public final JSONObject getJsonObject() {
 		return _jsonObject;
-	}
-
-	@Override
-	public JSONObjectWrapper buildJsonArray() {
-		if (_value instanceof List) {
-			List<JSONObjectWrapper> values = (List<JSONObjectWrapper>) _value;
-
-			_jsonObject = null == _jsonObject ? new JSONObject() : _jsonObject;
-
-			for (JSONObjectWrapper jsonValue : values) {
-				_jsonObject.accumulate(_key, jsonValue.getJsonObject());
-			}
-
-		}
-		return this;
 	}
 
 	@Override

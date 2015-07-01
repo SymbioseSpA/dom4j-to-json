@@ -22,13 +22,16 @@ public class Dom4jToJson {
 			.getLogger(Dom4jToJson.class);
 
 	/**
-	 * @param rootElement
+	 * @param parentElement
 	 * @return
 	 */
 	public String writeToString(Element parentElement) {
 		JSONObjectWrapper jsonWrapper = recursive(parentElement);
-
-		return jsonWrapper.wrapperToString();
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		sb.append(jsonWrapper.wrapperToString());
+		sb.append("]");
+		return sb.toString();
 	}
 
 	private JSONObjectWrapper recursive(Element parentElement) {
@@ -42,7 +45,9 @@ public class Dom4jToJson {
 				LOGGER.debug("Unique Node Name [{}] childElements [{}]",
 						nodeName, childs.size());
 
-				if (childs.size() > 1) {
+				String attributeList = parentElement.attributeValue("class");
+				if ("levels".equals(attributeList)
+						|| "list".equals(attributeList)) {
 					List<JSONObjectWrapper> jsonArray = new ArrayList<JSONObjectWrapper>();
 					for (Element child : childs) {
 						JSONObjectWrapper recursive = recursive(child);
@@ -53,16 +58,15 @@ public class Dom4jToJson {
 					JSONObjectWrapper jsonArrayObject = JSONObjectWrapperImpl
 							.createInstance(parentElement.getName(), jsonArray);
 
-					return jsonArrayObject.buildJsonArray();
+					return jsonArrayObject;
 				}
 
 				JSONObjectWrapper recursive = recursive(childs.get(0));
+
 				LOGGER.debug("JSONObject [{}]", recursive.toString());
 				jsonObject.accumulate(recursive);
 			}
-
 			return jsonObject;
-
 		}
 
 		return JSONObjectWrapperImpl.createInstance(parentElement.getName(),
