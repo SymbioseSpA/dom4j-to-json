@@ -4,6 +4,51 @@
 	<groupId>com.symbiose</groupId>
 	<artifactId>dom4j-to-json</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>Utility for serialize Dom4j Element to JSON, using json-lib</description>
+	<url>https://git.pcollaog.cl/symbiose/dom4j-to-json</url>
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Francis López</name>
+			<email>francis.lopez@symbiose.cl</email>
+			<organization>Symbiose SpA</organization>
+			<organizationUrl>http://www.symbiose.cl</organizationUrl>
+		</developer>
+		<developer>
+			<name>Pablo Ramírez</name>
+			<email>pablo.ramirez@symbiose.cl</email>
+			<organization>Symbiose SpA</organization>
+			<organizationUrl>http://www.symbiose.cl</organizationUrl>
+		</developer>
+		<developer>
+			<name>Francisco Collao</name>
+			<email>francisco.collao@symbiose.cl</email>
+			<organization>Symbiose SpA</organization>
+			<organizationUrl>http://www.symbiose.cl</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git@git.pcollaog.cl:symbiose/dom4j-to-json.git</connection>
+		<developerConnection>scm:git:git@git.pcollaog.cl:symbiose/dom4j-to-json.git</developerConnection>
+		<url>git@git.pcollaog.cl:symbiose/dom4j-to-json.git</url>
+	</scm>
+
+	<issueManagement>
+		<system>gitlab</system>
+		<url>https://git.pcollaog.cl/symbiose/dom4j-to-json/issues</url>
+	</issueManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>dom4j</groupId>
@@ -68,6 +113,30 @@
 						<exclude>**/*PerformanceTest.java</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
