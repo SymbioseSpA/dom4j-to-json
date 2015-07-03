@@ -2,14 +2,15 @@ package com.symbiose.serializer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import org.apache.commons.io.IOUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.junit.Test;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 /**
  * @author pcollaog

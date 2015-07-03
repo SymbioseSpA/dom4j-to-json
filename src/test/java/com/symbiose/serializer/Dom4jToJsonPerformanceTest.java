@@ -20,7 +20,7 @@ public class Dom4jToJsonPerformanceTest extends Dom4jToJsonTest {
 
 	@Test
 	@Override
-	@PerfTest(threads = 60, duration = 10 * 1000)
+	@PerfTest(threads = 60, duration = 60 * 1000)
 	public void shouldSerializeXmlToJson() throws Exception {
 		super.shouldSerializeXmlToJson();
 	}
