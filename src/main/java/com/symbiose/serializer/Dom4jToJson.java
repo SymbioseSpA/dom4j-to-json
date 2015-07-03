@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.dom4j.Element;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -22,9 +20,6 @@ public final class Dom4jToJson {
 	private static final String LEVELS = "levels";
 
 	private static final String CLASS = "class";
-
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(Dom4jToJson.class);
 
 	/**
 	 * 
