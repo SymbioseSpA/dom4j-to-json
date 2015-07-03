@@ -37,14 +37,12 @@ public class Dom4jToJson_Case2_Test {
 
 	@Test
 	public void shouldSerializeXmlToJson() throws Exception {
-		Document document = DocumentHelper.parseText(IOUtils
-				.toString(getClass().getResourceAsStream(FILENAME)));
+		Document document = DocumentHelper.parseText(
+				IOUtils.toString(getClass().getResourceAsStream(FILENAME)));
 
 		Element rootElement = document.getRootElement();
 
-		Dom4jToJson parser = new Dom4jToJson();
-
-		String result = parser.writeToString(rootElement);
+		String result = Dom4jToJson.writeToString(rootElement);
 
 		assertNotNull(result);
 

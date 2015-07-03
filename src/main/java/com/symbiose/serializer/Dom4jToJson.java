@@ -22,10 +22,16 @@ public class Dom4jToJson {
 			.getLogger(Dom4jToJson.class);
 
 	/**
+	 * 
+	 */
+	private Dom4jToJson() {
+	}
+
+	/**
 	 * @param parentElement
 	 * @return
 	 */
-	public String writeToString(Element parentElement) {
+	public static String writeToString(Element parentElement) {
 		JSONObjectWrapper jsonWrapper = recursive(parentElement);
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
@@ -34,7 +40,7 @@ public class Dom4jToJson {
 		return sb.toString();
 	}
 
-	private JSONObjectWrapper recursive(Element parentElement) {
+	private static JSONObjectWrapper recursive(Element parentElement) {
 		if (!parentElement.elements().isEmpty()) {
 			List<Element> elements = parentElement.elements();
 
@@ -78,7 +84,7 @@ public class Dom4jToJson {
 	 * @param elements
 	 * @return
 	 */
-	private Set<String> uniqueElementNames(List<Element> elements) {
+	private static Set<String> uniqueElementNames(List<Element> elements) {
 		Set<String> elementNames = new HashSet<String>();
 		for (Element element : elements) {
 			elementNames.add(element.getName());
