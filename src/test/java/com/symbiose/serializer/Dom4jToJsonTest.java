@@ -2,14 +2,15 @@ package com.symbiose.serializer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import org.apache.commons.io.IOUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.junit.Test;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 /**
  * @author pcollaog
@@ -35,15 +36,12 @@ public class Dom4jToJsonTest {
 
 	@Test
 	public void shouldSerializeXmlToJson() throws Exception {
-		Document document = DocumentHelper.parseText(IOUtils
-				.toString(getClass().getResourceAsStream(
-						"Dom4jToJson-testData.xml")));
+		Document document = DocumentHelper.parseText(IOUtils.toString(
+				getClass().getResourceAsStream("Dom4jToJson-testData.xml")));
 
 		Element rootElement = document.getRootElement();
 
-		Dom4jToJson parser = new Dom4jToJson();
-
-		String result = parser.writeToString(rootElement);
+		String result = Dom4jToJson.writeToString(rootElement);
 
 		assertNotNull(result);
 

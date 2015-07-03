@@ -1,84 +1,82 @@
 package com.symbiose.serializer;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.dom4j.Element;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import com.symbiose.serializer.json.JSONObjectWrapper;
-import com.symbiose.serializer.json.JSONObjectWrapperImpl;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 /**
  * @author pcollaog
  *
  */
-public class Dom4jToJson {
+public final class Dom4jToJson {
 
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(Dom4jToJson.class);
+	private static final String LIST = "list";
+
+	private static final String LEVELS = "levels";
+
+	private static final String CLASS = "class";
+
+	/**
+	 * 
+	 */
+	private Dom4jToJson() {
+	}
 
 	/**
 	 * @param parentElement
 	 * @return
 	 */
-	public String writeToString(Element parentElement) {
-		JSONObjectWrapper jsonWrapper = recursive(parentElement);
+	public static String writeToString(Element parentElement) {
+		JSONObject jsonObject = new JSONObject();
+		recursive(parentElement, jsonObject);
+
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
-		sb.append(jsonWrapper.wrapperToString());
+		sb.append(jsonObject);
 		sb.append("]");
+
 		return sb.toString();
 	}
 
-	private JSONObjectWrapper recursive(Element parentElement) {
+	private static void recursive(Element parentElement,
+			JSONObject parentJsonObject) {
 		if (!parentElement.elements().isEmpty()) {
-			List<Element> elements = parentElement.elements();
 
-			JSONObjectWrapper jsonObject = new JSONObjectWrapperImpl();
-			for (String nodeName : uniqueElementNames(elements)) {
-				List<Element> childs = parentElement.elements(nodeName);
+			for (String elementName : uniqueElementNames(
+					parentElement.elements())) {
+				List<Element> childs = parentElement.elements(elementName);
 
-				if (LOGGER.isDebugEnabled()) {
-					LOGGER.debug("Unique Node Name [{}] childElements [{}]",
-							nodeName, childs.size());
-				}
-
-				String attributeList = parentElement.attributeValue("class");
-				if ("levels".equals(attributeList)
-						|| "list".equals(attributeList)) {
-					List<JSONObjectWrapper> jsonArray = new ArrayList<JSONObjectWrapper>();
+				String attributeList = parentElement.attributeValue(CLASS);
+				if (LEVELS.equals(attributeList)
+						|| LIST.equals(attributeList)) {
+					JSONArray jsonArray = new JSONArray();
 					for (Element child : childs) {
-						JSONObjectWrapper recursive = recursive(child);
-						jsonArray.add(recursive);
+						JSONObject jsonChild = new JSONObject();
+						recursive(child, jsonChild);
+						jsonArray.element(jsonChild);
 					}
-					JSONObjectWrapper jsonArrayObject = JSONObjectWrapperImpl
-							.createInstance(parentElement.getName(), jsonArray);
-
-					return jsonArrayObject;
+					parentJsonObject.element(parentElement.getName(),
+							jsonArray);
+				} else {
+					recursive(childs.get(0), parentJsonObject);
 				}
-
-				JSONObjectWrapper recursive = recursive(childs.get(0));
-
-				LOGGER.debug("JSONObject [{}]", recursive.toString());
-				jsonObject.accumulate(recursive);
 			}
-			return jsonObject;
+		} else {
+			parentJsonObject.accumulate(parentElement.getName(),
+					parentElement.getTextTrim());
 		}
-
-		return JSONObjectWrapperImpl.createInstance(parentElement.getName(),
-				parentElement.getTextTrim());
-
 	}
 
 	/**
 	 * @param elements
 	 * @return
 	 */
-	private Set<String> uniqueElementNames(List<Element> elements) {
+	private static Set<String> uniqueElementNames(List<Element> elements) {
 		Set<String> elementNames = new HashSet<String>();
 		for (Element element : elements) {
 			elementNames.add(element.getName());
