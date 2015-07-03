@@ -52,30 +52,18 @@ public final class Dom4jToJson {
 			JSONObject parentJsonObject) {
 		if (!parentElement.elements().isEmpty()) {
 
-<<<<<<< HEAD
-				if (LOGGER.isDebugEnabled()) {
-					LOGGER.debug("Unique Node Name [{}] childElements [{}]",
-							nodeName, childs.size());
-				}
-=======
 			for (String elementName : uniqueElementNames(
 					parentElement.elements())) {
 				List<Element> childs = parentElement.elements(elementName);
->>>>>>> CHG: optimize algorithm without wrappers
 
 				String attributeList = parentElement.attributeValue(CLASS);
 				if (LEVELS.equals(attributeList)
 						|| LIST.equals(attributeList)) {
 					JSONArray jsonArray = new JSONArray();
 					for (Element child : childs) {
-<<<<<<< HEAD
-						JSONObjectWrapper recursive = recursive(child);
-						jsonArray.add(recursive);
-=======
 						JSONObject jsonChild = new JSONObject();
 						recursive(child, jsonChild);
 						jsonArray.element(jsonChild);
->>>>>>> CHG: optimize algorithm without wrappers
 					}
 					parentJsonObject.element(parentElement.getName(),
 							jsonArray);
