@@ -42,8 +42,10 @@ public class Dom4jToJson {
 			for (String nodeName : uniqueElementNames(elements)) {
 				List<Element> childs = parentElement.elements(nodeName);
 
-				LOGGER.debug("Unique Node Name [{}] childElements [{}]",
-						nodeName, childs.size());
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("Unique Node Name [{}] childElements [{}]",
+							nodeName, childs.size());
+				}
 
 				String attributeList = parentElement.attributeValue("class");
 				if ("levels".equals(attributeList)
@@ -51,8 +53,6 @@ public class Dom4jToJson {
 					List<JSONObjectWrapper> jsonArray = new ArrayList<JSONObjectWrapper>();
 					for (Element child : childs) {
 						JSONObjectWrapper recursive = recursive(child);
-						LOGGER.debug("JSONObject [{}]",
-								recursive.wrapperToString());
 						jsonArray.add(recursive);
 					}
 					JSONObjectWrapper jsonArrayObject = JSONObjectWrapperImpl

@@ -5,9 +5,6 @@ import java.util.List;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-
 /**
  * @author pcollaog
  *
@@ -92,7 +89,13 @@ public class JSONObjectWrapperImpl implements JSONObjectWrapper {
 
 	@Override
 	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.SHORT_PREFIX_STYLE);
+		StringBuilder builder = new StringBuilder();
+		builder.append("JSONObjectWrapperImpl [key=");
+		builder.append(_key);
+		builder.append(", value=");
+		builder.append(_value);
+		builder.append("]");
+		return builder.toString();
 	}
+
 }
