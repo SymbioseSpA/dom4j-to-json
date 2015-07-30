@@ -1,0 +1,9 @@
+<Container>
+	<trxResult>
+		<Status>
+			<StatusCode>EXI</StatusCode>
+			<StatusCodeHost>0</StatusCodeHost>
+			<StatusCodeHostSeverity>Exitosa</StatusCodeHostSeverity>
+		</Status>
+	</trxResult>
+</Container>
