@@ -2,16 +2,16 @@
 	<statusCode>000000</statusCode>
 	<messageError />
 	<concreteReturn class="levels">
-		<net.excelsys.delivery.icbs.report.dto.IcbsTransactionMadeReportDTO>
+		<cl.symbiose.parser.TransactionMadeReportDTO>
 			<id>358953</id>
 			<paymentDate class="sql-timestamp">2015-06-26 11:43:47.567</paymentDate>
 			<paymentAmt>1</paymentAmt>
-			<serviceName>Transferencias - Internas, Aval, ACH</serviceName>
+			<serviceName>Transferencias</serviceName>
 			<state>EXI</state>
 			<productName>Crédito4543</productName>
 			<autNumber>366761</autNumber>
-			<engServiceName>ING_Transferencias - ING_Internas, Aval, ACH</engServiceName>
-		</net.excelsys.delivery.icbs.report.dto.IcbsTransactionMadeReportDTO>
+			<engServiceName>ING_Transferencias - ING_Internas</engServiceName>
+		</cl.symbiose.parser.TransactionMadeReportDTO>
 	</concreteReturn>
 	<actualPage>2</actualPage>
 	<pages>2</pages>

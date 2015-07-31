@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Container>
+	<trxResult>
+		<webId>-2063670396</webId>
+		<productNumber>10523</productNumber>
+		<productType>SDA</productType>
+		<AcctDesc>Cuenta Ahorros</AcctDesc>
+		<AcctNickName>Cu0523</AcctNickName>
+		<AcctID2>*****0523</AcctID2>
+
+		<Status>
+			<StatusCode>EXI</StatusCode>
+			<StatusCodeHost>0</StatusCodeHost>
+			<StatusCodeError>0</StatusCodeError>
+			<StatusCodeAlt>0</StatusCodeAlt>
+			<StatusCodeHostSeverity>Exitosa</StatusCodeHostSeverity>
+			<StatusDesc>O.K.</StatusDesc>
+			<StatusDescAlt>Transacción Exitosa</StatusDescAlt>
+		</Status>
+		<Response>
+			<Status>
+				<StatusCode>0</StatusCode>
+				<ServerStatusCode />
+				<Severity>Info</Severity>
+				<StatusDesc>Success</StatusDesc>
+				<ServerStatusDesc />
+				<AdditionalStatus>
+					<StatusCode>0</StatusCode>
+					<ServerStatusCode />
+					<Severity />
+					<StatusDesc>O.K.</StatusDesc>
+				</AdditionalStatus>
+			</Status>
+			<ApprovalId>106052</ApprovalId>
+			<RqUID>3005013250</RqUID>
+			<MsgRqHdr>
+				<ClientApp>
+					<Org>XXX</Org>
+					<Name>YYY</Name>
+					<Version>7.9.1-SNAPSHOT</Version>
+				</ClientApp>
+				<Channel>BBS</Channel>
+				<BankInfo>
+					<BankIdType />
+					<BankId>0002</BankId>
+					<RefInfo>
+						<RefType />
+						<RefId />
+					</RefInfo>
+					<BranchName />
+				</BankInfo>
+				<ClientDt />
+				<IPAddr>127.0.0.1</IPAddr>
+				<SessKey>19lf1ayovv5zc10qxjvqbko67c</SessKey>
+				<UserId>
+					<CustPermId />
+					<CustLoginId>admin666</CustLoginId>
+					<GovIssueIdent>
+						<GovIssueIdentType>NIT</GovIssueIdentType>
+						<IdentSerialNum>16661</IdentSerialNum>
+					</GovIssueIdent>
+					<CustName>
+						<LastName>666</LastName>
+						<FirstName>admin666</FirstName>
+					</CustName>
+				</UserId>
+				<KeyAcctId>6666666666</KeyAcctId>
+				<Reverse>false</Reverse>
+				<Language>es_CO</Language>
+				<NextDay>2015-07-29T00:00:00</NextDay>
+			</MsgRqHdr>
+			<CustId>
+				<CustPermId />
+				<CustLoginId />
+				<GovIssueIdent>
+					<GovIssueIdentType>OTR</GovIssueIdentType>
+					<IdentSerialNum>6661</IdentSerialNum>
+					<GovOrg />
+					<GovOrgName />
+					<GovRank />
+					<StateProv />
+					<Country />
+					<Desc />
+					<IssDt />
+					<ExpDt />
+				</GovIssueIdent>
+				<CustName>
+					<LastName />
+					<FirstName />
+					<Nickname />
+					<LegalName>666</LegalName>
+				</CustName>
+			</CustId>
+			<InvoiceSender>
+				<OrgId>
+					<OrgIdType>001</OrgIdType>
+					<OrgIdNum>0090</OrgIdNum>
+					<OptOrgIdNum />
+				</OrgId>
+				<OrgInfo>
+					<IndustId>
+						<Org />
+						<IndustNum>8099997654</IndustNum>
+					</IndustId>
+					<Name>GAS NATURAL HOGAR</Name>
+					<LegalName />
+					<CompositeContactInfo>
+						<ContactInfoType>GeneralInfo</ContactInfoType>
+						<ContactInfo>
+							<PhoneNum>
+								<PhoneType>DayPhone</PhoneType>
+								<Phone>2000000</Phone>
+							</PhoneNum>
+							<EmailAddr />
+							<PostAddr>
+								<Addr />
+								<CityId>11001</CityId>
+								<City>BOGOTÁ D.C.</City>
+								<StateProv />
+								<PostalCode />
+								<Country />
+								<AddrType />
+								<StartDt />
+								<EndDt />
+							</PostAddr>
+							<ActivationPhone>
+								<PhoneNumber />
+							</ActivationPhone>
+							<CustName>
+								<LastName />
+								<FirstName />
+								<Nickname />
+								<LegalName />
+							</CustName>
+						</ContactInfo>
+					</CompositeContactInfo>
+				</OrgInfo>
+				<IsInvGen>true</IsInvGen>
+				<Category>Empresas de Servicios Públicos de BOGOTÁ</Category>
+				<SvcId>0090</SvcId>
+				<InvSndrPmtInfo>
+					<PmtBefAft>true</PmtBefAft>
+					<DaysBefore>8</DaysBefore>
+					<DaysAfter>4</DaysAfter>
+					<CycleDays>3</CycleDays>
+					<ATHInvoicing />
+					<PartialPmt>true</PartialPmt>
+					<ManCents>true</ManCents>
+					<OnLinePmt>true</OnLinePmt>
+					<PmtType />
+					<SchedPmt>true</SchedPmt>
+				</InvSndrPmtInfo>
+				<NoBillerMainReference />
+			</InvoiceSender>
+			<InvoiceSender>
+				<OrgId>
+					<OrgIdType>001</OrgIdType>
+					<OrgIdNum>0043</OrgIdNum>
+					<OptOrgIdNum />
+				</OrgId>
+				<OrgInfo>
+					<IndustId>
+						<Org />
+						<IndustNum>8055667878</IndustNum>
+					</IndustId>
+					<Name>ENERGIA - CODENSA</Name>
+					<LegalName />
+					<CompositeContactInfo>
+						<ContactInfoType>GeneralInfo</ContactInfoType>
+						<ContactInfo>
+							<PhoneNum>
+								<PhoneType>DayPhone</PhoneType>
+								<Phone>2000000</Phone>
+							</PhoneNum>
+							<EmailAddr />
+							<PostAddr>
+								<Addr />
+								<CityId>11001</CityId>
+								<City>BOGOTÁ D.C.</City>
+								<StateProv />
+								<PostalCode />
+								<Country />
+								<AddrType />
+								<StartDt />
+								<EndDt />
+							</PostAddr>
+							<ActivationPhone>
+								<PhoneNumber />
+							</ActivationPhone>
+							<CustName>
+								<LastName />
+								<FirstName />
+								<Nickname />
+								<LegalName />
+							</CustName>
+						</ContactInfo>
+					</CompositeContactInfo>
+					<TINInfo>
+						<TINType />
+						<TaxId />
+						<CertCode />
+					</TINInfo>
+					<EstablishDt />
+					<NumEmployees />
+					<ContributionData>
+						<Code />
+						<Desc />
+					</ContributionData>
+					<Abbr>DÃ­gite el No de Cliente Incluido el Digito DespuÃ©s del
+						GuiÃ³n
+					</Abbr>
+					<Image>
+						<URL />
+					</Image>
+					<ImageURL>https://www.avvillas.com.co//imagesebpp/El_Tiempo.jpg
+					</ImageURL>
+				</OrgInfo>
+				<PostAddr>
+					<Addr />
+					<CityId>11001</CityId>
+					<City>BOGOTÁ D.C.</City>
+					<StateProv />
+					<PostalCode />
+					<Country />
+					<AddrType />
+					<StartDt />
+					<EndDt />
+				</PostAddr>
+				<AcctPayAcct />
+				<Active />
+				<IsInvGen>true</IsInvGen>
+				<Category>Empresas de Servicios Públicos de BOGOTÁ</Category>
+				<SvcId>0043</SvcId>
+				<InvSndrPmtInfo>
+					<PmtBefAft>false</PmtBefAft>
+					<DaysBefore />
+					<DaysAfter />
+					<CycleDays>2</CycleDays>
+					<ATHInvoicing />
+					<PartialPmt>false</PartialPmt>
+					<ManCents>false</ManCents>
+					<OnLinePmt>true</OnLinePmt>
+					<PmtType />
+					<SchedPmt>true</SchedPmt>
+				</InvSndrPmtInfo>
+				<PmtAgreementInfo>
+					<PmtAgreementId />
+					<BSPInfo>
+						<BSPCode />
+						<BSPName />
+					</BSPInfo>
+				</PmtAgreementInfo>
+				<BankInfo>
+					<BankIdType />
+					<BankId />
+					<RefInfo>
+						<RefType />
+						<RefId />
+					</RefInfo>
+					<Name />
+					<BranchId />
+					<BranchName />
+					<PostAddr>
+						<Addr />
+						<CityId>11001</CityId>
+						<City>BOGOTÁ D.C.</City>
+						<StateProv />
+						<PostalCode />
+						<Country />
+						<AddrType />
+						<StartDt />
+						<EndDt />
+					</PostAddr>
+					<City />
+					<StateProv />
+					<PostalCode />
+					<Country />
+				</BankInfo>
+				<NoBillerMainReference />
+			</InvoiceSender>
+		</Response>
+	</trxResult>
+</Container>
