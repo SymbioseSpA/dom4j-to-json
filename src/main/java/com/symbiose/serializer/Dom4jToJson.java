@@ -41,8 +41,13 @@ public final class Dom4jToJson {
 	 */
 	public static String writeToString(Element parentElement) {
 		JSONArray jsonResult = new JSONArray();
-		JSONObject jsonChild = recursive(parentElement);
-		jsonResult.add(jsonChild);
+		if (null != parentElement) {
+			JSONObject jsonChild = recursive(parentElement);
+			if (null != jsonChild && !jsonChild.isEmpty()) {
+				jsonResult.add(jsonChild);
+			}
+			return jsonResult.toString();
+		}
 		return jsonResult.toString();
 	}
 
