@@ -2,7 +2,7 @@
 	<statusCode>000000</statusCode>
 	<messageError />
 	<concreteReturn class="levels">
-		<IcbsLastTransactionReportDTO>
+		<TransactionReportDTO>
 			<paymentAmt>345700</paymentAmt>
 			<paymentDate class="sql-timestamp">2015-06-22 20:10:53.355
 			</paymentDate>
@@ -11,8 +11,8 @@
 			<serviceName>Pago Gas</serviceName>
 			<state>EXI</state>
 			<id>4194046</id>
-		</IcbsLastTransactionReportDTO>
-		<IcbsLastTransactionReportDTO>
+		</TransactionReportDTO>
+		<TransactionReportDTO>
 			<paymentAmt>123654.23</paymentAmt>
 			<paymentDate class="sql-timestamp">2015-06-22 20:10:52.449
 			</paymentDate>
@@ -21,8 +21,8 @@
 			<serviceName>Pago Telefono</serviceName>
 			<state>EXI</state>
 			<id>4194045</id>
-		</IcbsLastTransactionReportDTO>
-		<IcbsLastTransactionReportDTO>
+		</TransactionReportDTO>
+		<TransactionReportDTO>
 			<paymentAmt>97560.67</paymentAmt>
 			<paymentDate class="sql-timestamp">2015-06-22 20:10:51.61
 			</paymentDate>
@@ -31,8 +31,8 @@
 			<serviceName>Pago Luz</serviceName>
 			<state>EXI</state>
 			<id>4194044</id>
-		</IcbsLastTransactionReportDTO>
-		<IcbsLastTransactionReportDTO>
+		</TransactionReportDTO>
+		<TransactionReportDTO>
 			<paymentAmt>345700</paymentAmt>
 			<paymentDate class="sql-timestamp">2015-06-22 20:10:50.358
 			</paymentDate>
@@ -41,8 +41,8 @@
 			<serviceName>Pago Agua</serviceName>
 			<state>EXI</state>
 			<id>4194043</id>
-		</IcbsLastTransactionReportDTO>
-		<IcbsLastTransactionReportDTO>
+		</TransactionReportDTO>
+		<TransactionReportDTO>
 			<paymentAmt>2123123</paymentAmt>
 			<paymentDate class="sql-timestamp">2015-06-22 20:08:06.204
 			</paymentDate>
@@ -51,7 +51,7 @@
 			<serviceName>pago tarjeta falabel</serviceName>
 			<state>EXI</state>
 			<id>4194022</id>
-		</IcbsLastTransactionReportDTO>
+		</TransactionReportDTO>
 	</concreteReturn>
 	<actualPage>1</actualPage>
 	<pages>1</pages>
