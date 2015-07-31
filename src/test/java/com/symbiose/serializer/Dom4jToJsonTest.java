@@ -165,4 +165,29 @@ public class Dom4jToJsonTest {
 		}
 
 	}
+
+	@Test
+	public void shouldParseEmptyElement() throws Exception {
+		Element element = DocumentHelper.createElement("ElementTest");
+		String result = Dom4jToJson.writeToString(element);
+
+		assertNotNull(result);
+		assertEquals("[]", result);
+
+		JSONArray jsonArray = JSONArray.fromObject(result);
+		assertNotNull(jsonArray);
+		assertEquals(0, jsonArray.size());
+	}
+
+	@Test
+	public void shouldParseNullElement() throws Exception {
+		String result = Dom4jToJson.writeToString(null);
+
+		assertNotNull(result);
+		assertEquals("[]", result);
+
+		JSONArray jsonArray = JSONArray.fromObject(result);
+		assertNotNull(jsonArray);
+		assertEquals(0, jsonArray.size());
+	}
 }
