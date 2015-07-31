@@ -10,16 +10,21 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
+ * Class to serialize/transform dom4j element on JSON
+ * 
  * @author pcollaog
- *
  */
 public final class Dom4jToJson {
 
-	private static final String LIST = "list";
-
-	private static final String LEVELS = "levels";
-
 	private static final String CLASS = "class";
+
+	private static final Set<String> LIST_CLASS_ATTRIBUTE;
+
+	static {
+		LIST_CLASS_ATTRIBUTE = new HashSet<String>();
+		LIST_CLASS_ATTRIBUTE.add("list");
+		LIST_CLASS_ATTRIBUTE.add("levels");
+	}
 
 	/**
 	 * 
@@ -28,60 +33,44 @@ public final class Dom4jToJson {
 	}
 
 	/**
+	 * Transform dom4j element on JSON (like json-lib style)
+	 * 
 	 * @param parentElement
-	 * @return
+	 *            dom4j element
+	 * @return serialized text
 	 */
 	public static String writeToString(Element parentElement) {
-		JSONObject jsonObject = new JSONObject();
-		recursive(parentElement, jsonObject);
-
-		StringBuilder sb = new StringBuilder();
-		sb.append("[");
-		sb.append(jsonObject);
-		sb.append("]");
-
-		return sb.toString();
+		JSONArray jsonResult = new JSONArray();
+		JSONObject jsonChild = recursive(parentElement);
+		jsonResult.add(jsonChild);
+		return jsonResult.toString();
 	}
 
-	private static void recursive(Element parentElement,
-			JSONObject parentJsonObject) {
-		if (!parentElement.elements().isEmpty()) {
+	private static JSONObject recursive(Element parentElement) {
+		List<Element> childElements = parentElement.elements();
 
-			for (String elementName : uniqueElementNames(
-					parentElement.elements())) {
-				List<Element> childs = parentElement.elements(elementName);
+		JSONObject jsonObject = new JSONObject();
+		for (Element childElement : childElements) {
 
-				String attributeList = parentElement.attributeValue(CLASS);
-				if (LEVELS.equals(attributeList)
-						|| LIST.equals(attributeList)) {
-					JSONArray jsonArray = new JSONArray();
-					for (Element child : childs) {
-						JSONObject jsonChild = new JSONObject();
-						recursive(child, jsonChild);
-						jsonArray.element(jsonChild);
-					}
-					parentJsonObject.element(parentElement.getName(),
-							jsonArray);
+			String attributeValue = childElement.attributeValue(CLASS);
+			if (LIST_CLASS_ATTRIBUTE.contains(attributeValue)) {
+				List<Element> elements = childElement.elements();
+
+				JSONArray jsonArray = new JSONArray();
+				for (Element element : elements) {
+					jsonArray.add(recursive(element));
+				}
+				jsonObject.element(childElement.getName(), jsonArray);
+			} else {
+				if (!childElement.elements().isEmpty()) {
+					JSONObject recursive = recursive(childElement);
+					jsonObject.accumulate(childElement.getName(), recursive);
 				} else {
-					recursive(childs.get(0), parentJsonObject);
+					jsonObject.accumulate(childElement.getName(),
+							childElement.getTextTrim());
 				}
 			}
-		} else {
-			parentJsonObject.accumulate(parentElement.getName(),
-					parentElement.getTextTrim());
 		}
+		return jsonObject;
 	}
-
-	/**
-	 * @param elements
-	 * @return
-	 */
-	private static Set<String> uniqueElementNames(List<Element> elements) {
-		Set<String> elementNames = new HashSet<String>();
-		for (Element element : elements) {
-			elementNames.add(element.getName());
-		}
-		return elementNames;
-	}
-
 }
